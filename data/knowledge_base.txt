@@ -1,0 +1,203 @@
+PRACHIVA OFFICE SOLUTIONS PVT. LTD.
+FICTIONAL COMPANY - TEST DATA
+
+COMPANY OVERVIEW
+
+Prachiva Office Solutions Pvt. Ltd. is a fictional technology and business-services company created for the AI Executive Office Assistant project.
+
+The company has departments including Human Resources, Finance, Information Technology, Operations, Engineering, AI and Data, and Sales.
+
+The AI Executive Office Assistant helps employees retrieve internal information, understand company policies, summarize information, and perform selected office tasks.
+
+WORKING HOURS AND ATTENDANCE
+
+Standard working hours are Monday to Friday, 9:30 AM to 6:30 PM.
+
+Employees are expected to be available during their assigned working hours.
+
+Employees should record their attendance through the company's attendance system.
+
+Employees who expect to arrive late should inform their reporting manager as early as possible.
+
+Repeated attendance issues may be reviewed by the employee's manager and Human Resources department.
+
+Employees working in different shifts must follow the working hours assigned to their team.
+
+LEAVE POLICY
+
+Employees can request annual leave, sick leave, and personal leave through the internal leave system.
+
+Leave requests should normally be submitted at least two working days before the planned leave.
+
+Emergency or sick leave should be communicated to the reporting manager as soon as possible.
+
+Leave approval depends on business requirements, team availability, and manager approval.
+
+Employees should check their available leave balance before submitting a planned leave request.
+
+WORK FROM HOME POLICY
+
+Employees may work from home when their role and team requirements allow it.
+
+Work-from-home requests should be submitted through the approved internal process.
+
+Employees working from home must remain available during their scheduled working hours.
+
+Employees must have a suitable internet connection and a secure working environment.
+
+Confidential company information must not be accessed from unsecured public computers.
+
+MEETING POLICY
+
+Employees should join scheduled meetings on time.
+
+Meeting invitations should include the meeting purpose, date, time, and required participants.
+
+Participants should review relevant documents before important meetings.
+
+The meeting organizer should share important action items after the meeting when required.
+
+Meetings should be cancelled when they are no longer necessary.
+
+EMAIL AND COMMUNICATION POLICY
+
+Employees should use their official company email account for business communication.
+
+Important business communication should be written clearly and professionally.
+
+Confidential information should only be shared with authorized recipients.
+
+Employees should avoid sending sensitive company information through personal email accounts.
+
+Employees should respond to important internal requests within a reasonable business timeframe.
+
+IT SUPPORT POLICY
+
+Employees should contact the IT Support team when they experience problems with company devices, applications, network access, or business software.
+
+For urgent technical problems that prevent an employee from working, the employee should mark the issue as high priority through the IT support system.
+
+Employees should not install unauthorized software on company devices.
+
+Employees should not share their company passwords with other employees.
+
+Company laptops and other IT equipment should be handled carefully and returned when requested.
+
+EXPENSE AND REIMBURSEMENT POLICY
+
+Employees may request reimbursement for approved business expenses.
+
+Expense claims should include the date, amount, business purpose, and supporting receipt when applicable.
+
+Employees should submit expense claims within 15 calendar days of the expense.
+
+Business expenses must be reasonable and related to approved company activities.
+
+The employee's manager must approve applicable expenses before reimbursement is processed.
+
+Reimbursement requests without sufficient supporting information may be returned for clarification.
+
+BUSINESS TRAVEL POLICY
+
+Business travel should be approved by the employee's reporting manager before booking.
+
+Employees should use approved travel options and follow company travel guidelines.
+
+Travel expenses should be supported by valid receipts whenever required.
+
+Employees should submit travel expense claims within 15 calendar days after returning from the business trip.
+
+Any major change to an approved business trip should be communicated to the reporting manager.
+
+EMPLOYEE ONBOARDING
+
+New employees complete an onboarding process coordinated by Human Resources.
+
+The onboarding process may include identity verification, employment documentation, company policy acknowledgement, system access setup, and introduction to the employee's team.
+
+IT Support is responsible for providing required company systems and equipment.
+
+New employees should complete mandatory training assigned during onboarding.
+
+Employees should contact Human Resources if they have questions about onboarding documentation.
+
+EMPLOYEE OFFBOARDING
+
+Employees leaving the company must complete the required exit process.
+
+Company equipment such as laptops, access cards, and other assigned assets must be returned according to company instructions.
+
+Access to company systems may be disabled as part of the offboarding process.
+
+Employees should complete required knowledge-transfer activities before their final working day.
+
+Human Resources coordinates the exit documentation and related formalities.
+
+INFORMATION SECURITY
+
+Employees are responsible for protecting company information.
+
+Company passwords must not be shared with other people.
+
+Employees should use strong and unique passwords for company accounts.
+
+Suspicious emails, links, or attachments should be reported to the IT Support or Information Security team.
+
+Confidential information should only be accessed by authorized employees.
+
+Employees should lock their computers when leaving their workspace.
+
+Employees must not copy confidential company information to unauthorized personal storage devices.
+
+DOCUMENT MANAGEMENT
+
+Company documents should be stored in approved company storage systems.
+
+Documents should use clear and meaningful file names.
+
+Employees should avoid creating unnecessary duplicate copies of important documents.
+
+Confidential documents should only be shared with authorized employees.
+
+Important documents should be reviewed for accuracy before being distributed.
+
+FREQUENTLY ASKED QUESTIONS
+
+Question: What are the standard working hours?
+
+Answer: Standard working hours are Monday to Friday, 9:30 AM to 6:30 PM.
+
+Question: How should I request leave?
+
+Answer: Employees should submit a leave request through the internal leave system. Planned leave should normally be submitted at least two working days in advance.
+
+Question: What should I do if I have a laptop problem?
+
+Answer: Contact the IT Support team and create an IT support request. If the problem prevents you from working, mark the issue as high priority.
+
+Question: Can I work from home?
+
+Answer: Work from home may be available when the employee's role and team requirements allow it. Employees should follow the approved work-from-home process.
+
+Question: When should I submit an expense claim?
+
+Answer: Employees should normally submit expense claims within 15 calendar days of the expense.
+
+Question: Can I share my company password with my colleague?
+
+Answer: No. Company passwords must not be shared with other employees.
+
+Question: Who handles employee onboarding?
+
+Answer: Human Resources coordinates the onboarding process, while IT Support handles required systems and equipment.
+
+Question: What happens during offboarding?
+
+Answer: Employees complete the required exit process, return company assets, complete knowledge transfer, and finish required documentation.
+
+END OF FICTIONAL TEST KNOWLEDGE BASE
+
+
+
+
+
