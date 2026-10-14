@@ -1,3 +1,4 @@
+from task_manager import tasks
 import streamlit as st
 
 from agent import process_request
@@ -338,6 +339,51 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+
+# =========================================
+# DASHBOARD OVERVIEW
+# =========================================
+
+st.markdown("## 📊 Office Dashboard")
+st.caption("Your AI-powered workspace at a glance")
+
+# Get live task statistics
+total_tasks = len(tasks)
+
+completed_tasks = sum(
+    1 for task in tasks
+    if task["status"] == "Completed"
+)
+
+pending_tasks = sum(
+    1 for task in tasks
+    if task["status"] == "Pending"
+)
+
+# Display dashboard metrics
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.metric("📋 Total Tasks", total_tasks)
+
+with col2:
+    st.metric("⏳ Pending Tasks", pending_tasks)
+
+with col3:
+    st.metric("✅ Completed Tasks", completed_tasks)
+
+with col4:
+    message_count = len(
+        st.session_state.get("conversation", [])
+    )
+    st.metric("💬 Messages", message_count)
+
+# Get conversation statistics
+conversation = st.session_state.get(
+    "conversation", []
+)
+
+message_count = len(conversation)
 
 # =========================================
 # QUICK ACTIONS
