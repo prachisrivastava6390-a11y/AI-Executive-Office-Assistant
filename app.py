@@ -4,7 +4,8 @@ import streamlit as st
 from agent import process_request
 from rag import extract_document_text
 from memory import add_message, get_recent_conversation
-
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 # =========================================
 # PAGE CONFIGURATION
@@ -879,21 +880,57 @@ if request:
         limit=6
     )
 
-
-    # -----------------------------------------
     # AI RESPONSE
-    # -----------------------------------------
 
-    with st.spinner(
-        "🤖 Assistant is working..."
-    ):
+with st.spinner("🤖 Assistant is working..."):
 
+    normalized_request = request.lower()
+
+    india_now = datetime.now(
+        ZoneInfo("Asia/Kolkata")
+    )
+
+    asks_time = any(phrase in normalized_request for phrase in [
+        "current time",
+        "what time",
+        "time now",
+        "local time"
+    ])
+
+    asks_date = any(phrase in normalized_request for phrase in [
+        "today's date",
+        "todays date",
+        "current date",
+        "what is the date",
+        "date today"
+    ])
+
+    if asks_time and asks_date:
+        response = (
+            f"Today's date is "
+            f"{india_now.strftime('%d %B %Y')}. "
+            f"The current time in India is "
+            f"{india_now.strftime('%I:%M %p')} IST."
+        )
+
+    elif asks_date:
+        response = (
+            f"Today's date is "
+            f"{india_now.strftime('%d %B %Y')}."
+        )
+
+    elif asks_time:
+        response = (
+            f"The current time in India is "
+            f"{india_now.strftime('%I:%M %p')} IST."
+        )
+
+    else:
         response = process_request(
             request,
             st.session_state.document_text,
             conversation_history
         )
-
 
     # -----------------------------------------
     # SAVE ASSISTANT RESPONSE
