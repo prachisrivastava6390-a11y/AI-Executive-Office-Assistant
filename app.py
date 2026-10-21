@@ -1,6 +1,8 @@
 import ast
 import math
 import operator
+import re
+
 import streamlit as st
 
 from datetime import datetime
@@ -11,10 +13,7 @@ from agent import process_request
 from rag import extract_document_text
 from memory import add_message, get_recent_conversation
 
-
-# =========================================
 # PAGE CONFIGURATION
-# =========================================
 
 st.set_page_config(
     page_title="AI Executive Office Assistant",
@@ -195,19 +194,11 @@ def detect_document_type(document_text, document_name=""):
     return detected_type
 
 
-# =========================================
-# SAFE CALCULATOR
-# =========================================
+
+
 
 def safe_calculate(expression):
-    """
-    Calculate arithmetic expressions safely.
-
-    Allowed:
-    +, -, *, /, %, **, parentheses and decimal numbers.
-
-    Letters, names, function calls and Python code are rejected.
-    """
+    """Safely calculate a basic arithmetic expression."""
 
     if not isinstance(expression, str) or not expression.strip():
         raise ValueError("Please enter a calculation.")
@@ -215,11 +206,10 @@ def safe_calculate(expression):
     expression = expression.strip()
 
     if len(expression) > 100:
-        raise ValueError("The calculation is too long.")
+        raise ValueError("Expression is too long.")
 
-    try:
-        tree = ast.parse(expression, mode="eval")
-    except (SyntaxError, ValueError, MemoryError):
+    # Reject letters and all other characters.
+    if not re.fullmatch(r"[0-9+\-*/%().\s]+", expression):
         raise ValueError(
             "Invalid expression. Enter numbers and arithmetic operators only."
         )
@@ -230,109 +220,51 @@ def safe_calculate(expression):
         ast.Mult: operator.mul,
         ast.Div: operator.truediv,
         ast.Mod: operator.mod,
-        ast.Pow: operator.pow,
         ast.UAdd: operator.pos,
         ast.USub: operator.neg,
     }
 
-    def calculate(node):
+    try:
+        tree = ast.parse(expression, mode="eval")
+    except (SyntaxError, ValueError):
+        raise ValueError("Please enter a valid mathematical expression.")
 
+    def calculate(node):
         if isinstance(node, ast.Constant):
             if type(node.value) not in (int, float):
                 raise ValueError("Only numbers are allowed.")
-
-            if abs(node.value) > 1e100:
-                raise ValueError("The number is too large.")
-
-            if isinstance(node.value, float) and not math.isfinite(node.value):
+            if not math.isfinite(node.value):
                 raise ValueError("Invalid number.")
-
             return node.value
 
         if isinstance(node, ast.BinOp):
-
             operation = allowed_operators.get(type(node.op))
-
             if operation is None:
-                raise ValueError("Unsupported mathematical operation.")
+                raise ValueError("Unsupported operation.")
 
             left = calculate(node.left)
             right = calculate(node.right)
-
-            if isinstance(node.op, ast.Pow) and abs(right) > 10:
-                raise ValueError("The exponent must be between -10 and 10.")
-
             result = operation(left, right)
 
             if type(result) not in (int, float):
                 raise ValueError("Invalid result.")
-
-            if abs(result) > 1e100:
-                raise ValueError("The result is too large.")
-
-            if isinstance(result, float) and not math.isfinite(result):
-                raise ValueError("The result is too large.")
-
+            if not math.isfinite(result):
+                raise ValueError("Result is too large.")
             return result
 
         if isinstance(node, ast.UnaryOp):
-
             operation = allowed_operators.get(type(node.op))
-
             if operation is None:
                 raise ValueError("Unsupported operation.")
-
             return operation(calculate(node.operand))
 
-        # Reject variable names, function calls and all other syntax.
-        raise ValueError(
-            "Letters and unsupported expressions are not allowed."
-        )
+        raise ValueError("Invalid mathematical expression.")
 
     try:
         return calculate(tree.body)
     except (ZeroDivisionError, OverflowError, TypeError, ArithmeticError):
-        raise ValueError(
-            "Unable to calculate. Check your mathematical expression."
-        )
+        raise ValueError("Unable to calculate this expression.")
 
-
-# =========================================
-# SIDEBAR
-# =========================================
-
-with st.sidebar:
-
-    st.title("🤖 Assistant")
-    st.caption("AI Executive Office Assistant")
-    st.divider()
-    st.subheader("✨ Features")
-
-    features = [
-        "Company RAG",
-        "Document Intelligence",
-        "Email Assistant",
-        "Meeting Assistant",
-        "Task Management",
-        "Tools",
-        "Conversation Memory",
-        "Safety Layer"
-    ]
-
-    for feature in features:
-        st.write(f"✅ {feature}")
-
-    st.divider()
-    st.subheader("💬 Conversation")
-
-    if st.button("🗑️ Clear Conversation", use_container_width=True):
-        st.session_state.conversation = []
-        st.rerun()
-
-    st.divider()
-    st.caption(
-        "Built with RAG + LLM + Agent Orchestration + Tools"
-    )
 
 
 # =========================================
@@ -351,7 +283,6 @@ st.markdown(
     "</div>",
     unsafe_allow_html=True
 )
-
 
 # =========================================
 # DASHBOARD OVERVIEW
